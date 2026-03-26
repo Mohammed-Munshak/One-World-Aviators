@@ -1,0 +1,832 @@
+/* =========================================
+   1. GLOBAL VARIABLES & RESET
+   ========================================= */
+:root {
+    --primary-color: #00205b;    /* Deep Navy Blue (Airline Standard) */
+    --secondary-color: #00aaff;  /* Sky Blue (Aviation Accents) */
+    --accent-color: #ffcc00;     /* Gold/Yellow (Signals/Safety) */
+    --text-dark: #333333;
+    --text-light: #f4f4f4;
+    --bg-light: #f9f9f9;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* User Profile in Header */
+.user-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Makes it a circle */
+    object-fit: cover;
+    border: 2px solid var(--secondary-color);
+}
+
+.header-username {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+.header-link {
+    color: #ccc;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.header-link:hover {
+    color: var(--secondary-color);
+}
+
+.logout-btn {
+    color: #ff4d4d; /* Red for logout */
+}
+
+.logout-btn:hover {
+    color: #ff0000;
+}
+
+.separator {
+    color: rgba(255,255,255,0.3);
+}
+
+/* =========================================
+   2. TOP BAR
+   ========================================= */
+.top-bar {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.whatsapp-link {
+    color: #25D366; /* WhatsApp Green */
+    font-weight: bold;
+}
+
+.whatsapp-link:hover {
+    text-decoration: underline;
+}
+
+.top-right a {
+    color: var(--white);
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.top-right a:hover {
+    color: var(--secondary-color);
+}
+
+/* =========================================
+   3. MAIN HEADER & BRANDING
+   ========================================= */
+.main-header {
+    background: var(--white);
+    padding: 20px 0;
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.header-flex {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 80px; /* Adjust based on your actual logo */
+    width: auto;
+}
+
+.brand-name h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.slogan {
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* =========================================
+   4. NAVIGATION BAR
+   ========================================= */
+.navbar {
+    background-color: var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    display: block;
+    color: var(--white);
+    padding: 15px 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Hover Effect: Bottom Border Animation */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 15px;
+}
+
+/* =========================================
+   5. BUTTONS
+   ========================================= */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 170, 255, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   6. HERO SECTION
+   ========================================= */
+.hero-section {
+    background: url('images/hero-bg.jpg') no-repeat center center/cover;
+    height: 60vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    background: rgba(0, 32, 91, 0.7); /* Navy overlay */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--white);
+    max-width: 800px;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* =========================================
+   7. NEWS SECTION & CARDS
+   ========================================= */
+.latest-news-section, .content-section {
+    padding: 60px 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* =========================================
+   UPDATED NEWS CARD STYLES
+   ========================================= */
+
+.news-grid {
+    display: flex;       /* Changed to Flex to center items better */
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center; /* Centers the news boxes */
+}
+
+.news-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+    
+    /* FIX: Prevents box from getting too wide */
+    width: 100%; 
+    max-width: 450px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.news-image {
+    width: 100%;
+    background-color: #f0f0f0; /* Grey background in case image loads slowly */
+}
+
+.news-image img {
+    width: 100%;
+    height: auto;  /* FIX: Shows the COMPLETE image (no cropping) */
+    display: block;
+}
+
+.news-content {
+    padding: 25px;
+}
+
+.news-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.news-content p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* "View All News" Button Style */
+.view-all-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-view-all {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-view-all:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+/* =========================================
+   8. SHORTCUTS & ICONS
+   ========================================= */
+.shortcuts-section {
+    background-color: var(--white);
+    padding: 60px 0;
+}
+
+.shortcuts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.shortcut-card {
+    background: var(--bg-light);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    transition: var(--transition);
+}
+
+.shortcut-card:hover {
+    border-color: var(--secondary-color);
+    background: #eef9ff;
+}
+
+.icon-box {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.shortcut-card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.shortcut-card p {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* =========================================
+   NEWS FEED STYLES (For news.php)
+   ========================================= */
+
+.news-feed-item {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 50px; /* Space between articles */
+    overflow: hidden;
+}
+
+.news-feed-header {
+    padding: 30px 30px 20px 30px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.news-feed-header h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.news-feed-image {
+    width: 100%;
+    background: #f9f9f9;
+}
+
+.news-feed-image img {
+    width: 100%;
+    height: auto; /* Show full image, no cropping */
+    display: block;
+}
+
+.news-feed-content {
+    padding: 30px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+}
+
+/* Add this to style.css */
+.thanks-list li a {
+    color: #ccc; /* Or your preferred text color */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.thanks-list li a:hover {
+    color: #fff; /* White on hover */
+    text-decoration: underline;
+}
+
+/* =========================================
+   9. EVENTS LIST
+   ========================================= */
+.programs-section {
+    padding: 60px 0;
+    background-color: #f0f4f8;
+}
+
+.event-card {
+    background: var(--white);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--secondary-color);
+}
+
+.event-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.event-meta {
+    display: flex;
+    gap: 20px;
+    color: #555;
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.event-meta i {
+    color: var(--secondary-color);
+    margin-right: 5px;
+}
+
+.special-note {
+    font-size: 0.9rem;
+    color: #d9534f; /* Alert Red */
+    margin-top: 5px;
+}
+
+.center-btn {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* =========================================
+   10. GALLERY GRID
+   ========================================= */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--white);
+}
+
+.gallery-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-img img {
+    transform: scale(1.1); /* Zoom effect */
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.gallery-details {
+    padding: 15px;
+    background: var(--white);
+    position: relative;
+    z-index: 2;
+}
+
+.gallery-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.interactions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    color: #555;
+    transition: color 0.2s;
+}
+
+.interactions button:hover {
+    color: var(--secondary-color);
+}
+
+/* =========================================
+   11. FORMS (Login, Signup, Contact)
+   ========================================= */
+.auth-body {
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.auth-box {
+    background: var(--white);
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.auth-footer a {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* =========================================
+   12. FOOTER
+   ========================================= */
+footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 50px 0 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #333;
+}
+
+.footer-branding h4, .footer-thanks h4 {
+    color: var(--white);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+
+.main-credit {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.thanks-list li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.thanks-list li::before {
+    content: '✈';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-size: 0.8rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   13. RESPONSIVE DESIGN (Media Queries)
+   ========================================= */
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    /* Header Stack */
+    .header-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .brand-name h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Navbar Toggle */
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* JavaScript will toggle this class to show menu */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Event Card Stack */
+    .event-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .event-meta {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .event-action {
+        margin-top: 20px;
+        width: 100%;
+    }
+    
+    .event-action .btn {
+        width: 100%;
+    }
+
+    /* Footer Stack */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    /* =========================================
+   14. DESIGN FIXES (Borders & Cards)
+   ========================================= */
+
+/* Force all cards to have a white background and shadow */
+.news-card-large, .program-card-full, .college-card, .gallery-item {
+    background: #ffffff;
+    border: 1px solid #e0e0e0; /* Subtle grey border */
+    border-radius: 10px;       /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Soft shadow */
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 0; /* Reset padding */
+}
+
+/* Hover Effect: Lift up slightly */
+.news-card-large:hover, .program-card-full:hover, .college-card:hover, .gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-color: var(--secondary-color);
+}
+
+/* Internal padding for text areas inside cards */
+.news-text-content, .program-details, .college-info, .gallery-details {
+    padding: 25px;
+}
+
+/* Image styling within cards */
+.news-img-wrapper img, .program-img img, .college-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Fix for College Cards Layout */
+.college-card {
+    display: flex;
+    flex-direction: column; /* Stack image on top of text */
+}
+@media (min-width: 768px) {
+    .college-card {
+        flex-direction: row; /* Side by side on desktop */
+        align-items: center;
+    }
+    .college-logo {
+        width: 30%;
+        height: 100%;
+        min-height: 200px;
+    }
+    .college-info {
+        width: 70%;
+    }
+}
+}
