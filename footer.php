@@ -14,6 +14,7 @@
                 <li><a href="https://www.facebook.com/profile.php?id=61577051672626" target="_blank">Nex Gen Aviators</a></li>
                 <li><a href="https://www.facebook.com/theaerotechnician" target="_blank">The Aero Technician</a></li>
                 <li><a href="https://www.facebook.com/profile.php?id=61581005512357" target="_blank">Aviators Knowledge Hub</a></li>
+                <li><a href="https://web.facebook.com/profile.php?id=61586117026932" target="_blank">Skylog Sri Lanka</a></li>
             </ul>
         </div>
     </div>

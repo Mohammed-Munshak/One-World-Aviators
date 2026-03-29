@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";  
+$password = "111599";  
 $dbname = "owa_db";
 
 // Create connection
