@@ -236,7 +236,7 @@ $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
         }
         ?>
     </div>
-
+    <?php include 'chatbot.php'; ?>
     <?php include 'footer.php'; ?>
 
     <script>

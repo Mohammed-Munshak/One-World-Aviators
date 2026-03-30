@@ -175,7 +175,8 @@ function display_qa($comments, $parent_id = NULL, $level = 0, $current_user_id, 
             </div>
         </div>
     </section>
-
+    
+    <?php include 'chatbot.php'; ?>
     <?php include 'footer.php'; ?>
     <script>
     function toggleReplyForm(commentId) {

@@ -189,5 +189,6 @@ function renderBtn($nid, $type, $icon, $count, $my_react) {
         });
     }
     </script>
+    <?php include 'chatbot.php'; ?>
 </body>
 </html>

@@ -222,6 +222,7 @@ case 'forum_comment':
             </div>
         </div>
     </section>
+    <?php include 'chatbot.php'; ?>
     <?php include 'footer.php'; ?>
 </body>
 </html>

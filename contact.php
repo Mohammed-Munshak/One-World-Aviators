@@ -107,7 +107,7 @@ include 'db_connect.php';
 
         </div>
     </section>
-
+    <?php include 'chatbot.php'; ?>
     <?php include 'footer.php'; ?>
 </body>
 </html>

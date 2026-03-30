@@ -222,5 +222,6 @@ function display_comments($comments, $parent_id = NULL, $level = 0, $current_use
         if(form.style.display === "flex") form.querySelector('input').focus();
     }
     </script>
+    <?php include 'chatbot.php'; ?>
 </body>
 </html>

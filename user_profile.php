@@ -290,5 +290,6 @@ $current_pic = !empty($user['profile_pic']) ? $user['profile_pic'] : 'images/def
         });
     }
     </script>
+    <?php include 'chatbot.php'; ?>
 </body>
 </html>

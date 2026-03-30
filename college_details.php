@@ -157,7 +157,7 @@ $current_user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
             </div>
         </div>
     </section>
-
+    <?php include 'chatbot.php'; ?>
     <?php include 'footer.php'; ?>
     <script>
     // Highlight Logic
