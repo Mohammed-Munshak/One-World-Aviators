@@ -719,7 +719,7 @@ include 'db_connect.php';
       </p>
 
       <div class="virtual-crew-actions">
-        <a href="https://www.facebook.com/yourpage" target="_blank" class="virtual-crew-btn">
+        <a href="https://www.facebook.com/https://web.facebook.com/profile.php?id=61587276162555" target="_blank" class="virtual-crew-btn">
           Follow on Facebook
         </a>
       </div>
