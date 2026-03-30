@@ -164,6 +164,7 @@ function format_number($n) {
 
         <div class="nav-group-title">Content</div>
         <a href="?tab=news" class="<?php echo $tab=='news'?'active':''; ?>"><i class="fa-regular fa-newspaper"></i> News</a>
+        <a href="admin_news_editor.php"><i class="fa-solid fa-wand-magic-sparkles"></i> News Editor</a>
         <a href="?tab=events" class="<?php echo $tab=='events'?'active':''; ?>"><i class="fa-regular fa-calendar"></i> Events</a>
         <a href="?tab=colleges" class="<?php echo $tab=='colleges'?'active':''; ?>"><i class="fa-solid fa-graduation-cap"></i> Colleges</a>
         <a href="?tab=stories" class="<?php echo $tab=='stories'?'active':''; ?>"><i class="fa-solid fa-trophy"></i> Success Stories</a>
@@ -415,7 +416,7 @@ function format_number($n) {
                 </table>
             </div>
         <?php endif; ?>
-
+            
         <?php if($tab == 'events'): ?>
             <h1>Manage Events</h1>
             <div class="card">

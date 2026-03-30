@@ -1,11 +1,12 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "111599";  
+$password = "";
 $dbname = "owa_db";
+$port = 3307; // IMPORTANT: your MySQL port
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 // Check connection
 if ($conn->connect_error) {
