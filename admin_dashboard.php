@@ -247,7 +247,7 @@ function format_number($n) {
                                     <td>{$msg['subject']}</td>
                                     <td>".substr(htmlspecialchars($msg['message']), 0, 50)."...</td>
                                     <td>
-                                        <a href='mailto:{$msg['email']}?subject=Re: {$msg['subject']}' class='action-btn btn-blue'>Reply</a>
+                                        <a href='https://mail.google.com/mail/?view=cm&fs=1&to={$msg['email']}&su=Re: {$msg['subject']}' target='_blank' class='action-btn btn-blue'>Reply in Gmail</a>
                                         <a href='admin_process.php?action=delete_message&id={$msg['id']}' class='action-btn btn-red' onclick='return confirm(\"Delete?\")'>Delete</a>
                                     </td>
                                 </tr>";

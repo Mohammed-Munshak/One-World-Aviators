@@ -172,12 +172,12 @@ $conn->query("UPDATE notifications SET is_read=1 WHERE user_id='$user_id' AND is
                                 // 5. ADMIN ACTIONS
                                 case 'verification_req':
                                     $msg = "<strong>{$row['username']}</strong> requested verification.";
-                                    $link = "admin_dashboard.php?tab=members";
+                                    $link = "admin_dashboard.php?tab=users";
                                     $icon = '<i class="fa-solid fa-shield-halved"></i>'; $bg = "bg-blue";
                                     break;
                                 case 'pass_request':
                                     $msg = "<strong>{$row['username']}</strong> requested password reset.";
-                                    $link = "admin_dashboard.php?tab=members";
+                                    $link = "admin_dashboard.php?tab=users";
                                     $icon = '<i class="fa-solid fa-key"></i>'; $bg = "bg-orange";
                                     break;
 

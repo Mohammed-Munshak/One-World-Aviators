@@ -122,10 +122,10 @@ function display_comments($comments, $parent_id = NULL, $level = 0, $current_use
                     while($row = $result->fetch_assoc()) {
                         $gid = $row['id'];
                         
-                        $like_count = $conn->query("SELECT COUNT(*) FROM likes WHERE gallery_id='$gid'")->fetch_row()[0];
+                        $like_count = $conn->query("SELECT COUNT(*) FROM gallery_likes WHERE gallery_id='$gid'")->fetch_row()[0];
                         $user_liked = false;
                         if($current_user_id) {
-                            $check_like = $conn->query("SELECT id FROM likes WHERE user_id='$current_user_id' AND gallery_id='$gid'");
+                            $check_like = $conn->query("SELECT id FROM gallery_likes WHERE user_id='$current_user_id' AND gallery_id='$gid'");
                             if($check_like->num_rows > 0) $user_liked = true;
                         }
                         $heart_class = $user_liked ? 'fa-solid fa-heart' : 'fa-regular fa-heart';
